@@ -1,0 +1,167 @@
+﻿<jedenViewBase:JedenViewModel x:Class="Projekt.Views.AddWithFkKeyView.AddKontrahentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:jedenViewBase="clr-namespace:Projekt.Views.AddViews"
+             xmlns:local="clr-namespace:Projekt.Views.AddWithFkKeyView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Themes/ResourceDictionary.xaml"/>
+    </UserControl.Resources>
+    <Grid Background="#cfcfcf">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+
+            <Label  Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+                    Margin="8" Content="Symbol:"/>
+            <TextBox  Grid.Column="1"  Grid.Row="0"	Margin="8"  
+                    Width="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  
+                      Text="{Binding  Path=Symbol, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+            
+            <Label  Grid.Column="3"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+                    Margin="8" Content="Typ:"/>
+
+            <ComboBox  Grid.Column="4"  Grid.Row="0"  Margin="8"  Height="25"  MinWidth="80" HorizontalAlignment="Stretch"  
+              ItemsSource="{Binding  TypKontrahentaComboBoxItems}" 
+              DisplayMemberPath="Value"  
+              SelectedValuePath="Key"  
+              SelectedValue="{Binding Path=TypKontrahenta,ValidatesOnDataErrors=True, Mode=TwoWay}"/>
+
+            <ComboBox  Grid.Column="5"  Grid.Row="0"  Margin="8"  Height="25"  MinWidth="100" HorizontalAlignment="Stretch"  
+              ItemsSource="{Binding  GrupaKontrahentaComboBoxItems}" 
+              DisplayMemberPath="Value"  
+              SelectedValuePath="Key"  
+              SelectedValue="{Binding Path=GrupaKontrahenta,ValidatesOnDataErrors=True, Mode=TwoWay}"/>
+
+            <Label Visibility="{Binding Path=VisibilityFirma,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+          Margin="8" Content="Nazwa:"/>
+            <TextBox Visibility="{Binding Path=VisibilityFirma,Mode=TwoWay}" Grid.Column="1"  Grid.Row="1"	Margin="8"  Grid.ColumnSpan="5" 
+          MinWidth="100" Height="25" VerticalAlignment="Center" HorizontalAlignment="Stretch"  
+                      Text="{Binding  Path=Nazwa, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Visibility="{Binding Path=VisibilityOsoba,Mode=TwoWay}" Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+                Margin="8" Content="Imię:"/>
+            <TextBox Visibility="{Binding Path=VisibilityOsoba,Mode=TwoWay}" Grid.Column="1"  Grid.Row="1"	Margin="8"  Grid.ColumnSpan="2" 
+                MinWidth="100" Height="25" VerticalAlignment="Center" HorizontalAlignment="Stretch"  
+            Text="{Binding  Path=Imie,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Visibility="{Binding Path=VisibilityOsoba}" Grid.Column="3"  Grid.Row="1" Grid.ColumnSpan="2" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+                Margin="8" Content="Nazwisko:"/>
+            <TextBox Visibility="{Binding Path=VisibilityOsoba}" Grid.Column="5"  Grid.Row="1"	Margin="8" 
+                MinWidth="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Stretch"  
+            Text="{Binding  Path=Nazwisko,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label  Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#2d3142" FontWeight="Bold"
+                    Margin="8" Content="Nazwa pełna:" Width="auto"/>
+            <TextBox TextWrapping="Wrap"   AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Grid.Column="1"  Grid.Row="0"	Margin="8"  
+          Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  
+                     Text="{Binding  Path=FullName, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            
+            <Label  Grid.Column="0"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+        Margin="8" Content="Ulica:"/>
+            <TextBox  Grid.Column="1"  Grid.Row="0"	Margin="8"  
+        Width="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=Ulica, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label  Grid.Column="2"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="30,8,8,8" Content="Nr domu:"/>
+            <TextBox  Grid.Column="3"  Grid.Row="0"	Margin="8"  
+Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=NrDomu, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label  Grid.Column="4"  Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="30,8,8,8" Content="Nr lokalu:"/>
+            <TextBox  Grid.Column="5"  Grid.Row="0"	Margin="8"  
+Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=NrLokalu, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label  Grid.Column="0"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="Miejscowość:"/>
+            <TextBox  Grid.Column="1"  Grid.Row="1"	Margin="8"  Grid.ColumnSpan="2" 
+Width="260" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=Miejscowosc, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label  Grid.Column="3"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="Kod pocztowy:"/>
+            <TextBox  Grid.Column="4"  Grid.Row="1"	Margin="8" Grid.ColumnSpan="2" 
+Width="110" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=KodPocztowy, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label  Grid.Column="0"  Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="Województwo:"/>
+            <ComboBox  Grid.Column="1"  Grid.Row="2"  Margin="8"  Height="25"  MinWidth="80" HorizontalAlignment="Stretch"  
+  ItemsSource="{Binding  WojewodztwoComboBoxItems}" 
+  DisplayMemberPath="Value"  
+  SelectedValuePath="Key"  
+  SelectedValue="{Binding Path=Wojewodztwo,Mode=TwoWay}"/>
+            <Label  Grid.Column="2"  Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="Państwo:"/>
+            <ComboBox  Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="2"  Margin="8"  Height="25"  MinWidth="80" HorizontalAlignment="Stretch"  
+  ItemsSource="{Binding  PanstwoComboBoxItems}" 
+  DisplayMemberPath="Value"  
+  SelectedValuePath="Key"  
+  SelectedValue="{Binding Path=Panstwo,Mode=TwoWay}"/>
+        
+        <Label  Grid.Column="0"  Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="NIP:"/>
+        <TextBox  Grid.Column="1"  Grid.Row="3"	Margin="8" Grid.ColumnSpan="2" 
+Width="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=NIP, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Visibility="{Binding Path=VisibilityFirma}"  Grid.Column="2"  Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#2d3142" FontWeight="Bold"
+Margin="8" Content="REGON:"/>
+            <TextBox Visibility="{Binding Path=VisibilityFirma}" Grid.Column="3"  Grid.Row="3"	Margin="8" Grid.ColumnSpan="2" 
+Width="200" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding  Path=REGON, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+</jedenViewBase:JedenViewModel>

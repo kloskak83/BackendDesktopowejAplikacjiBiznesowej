@@ -1,0 +1,26 @@
+﻿<local:JedenViewModel x:Class="Projekt.Views.AddViews.AddSlGrupaTwView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt.Views.AddViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Themes/ResourceDictionary.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource AddDictionaryLable}" Grid.Row="0" Grid.Column="0" Content="Nazwa grupy towarów"/>
+        <TextBox Style="{StaticResource AddDictionaryTextBox}" Grid.Row="0" Grid.Column="1" 
+         Text="{Binding Path=NazwaGrupyTowarow, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </Grid>
+</local:JedenViewModel>
